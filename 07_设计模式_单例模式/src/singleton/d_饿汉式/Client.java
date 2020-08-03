@@ -1,4 +1,4 @@
-package singleton.饿汉式;
+package singleton.d_饿汉式;
 
 public class Client {
     public static void main(String[] args) {

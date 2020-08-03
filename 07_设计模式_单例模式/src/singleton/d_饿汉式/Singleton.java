@@ -1,4 +1,4 @@
-package singleton.饿汉式;
+package singleton.d_饿汉式;
 
 /**
  * 饿汉式实现单例模式
