@@ -3,6 +3,9 @@ package proxy;
 import proxy.gameproxy.GamePlayer;
 import proxy.gameproxy.GamePlayerProxy;
 import proxy.gameproxy.IGamePlayer;
+import proxy.proxy.Proxy;
+import proxy.proxy.RealSubject;
+import proxy.proxy.Subject;
 
 public class Client {
     public static void main(String[] args) {
@@ -16,5 +19,13 @@ public class Client {
         proxy.login("zhangsan");
         proxy.killBoss();
         proxy.upgrade();
+
+        System.out.println("\n=======================\n");
+
+        Subject realSubject = new RealSubject();
+        realSubject.request();
+        System.out.println("====== 使用代理执行 ======");
+        Subject proxy1 = new Proxy(realSubject);
+        proxy1.request();
     }
 }
