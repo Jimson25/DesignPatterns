@@ -20,12 +20,13 @@ public class Client {
         proxy.killBoss();
         proxy.upgrade();
 
-        System.out.println("\n=======================\n");
-
+        System.out.println("====== 代理模式原型 ======");
         Subject realSubject = new RealSubject();
         realSubject.request();
         System.out.println("====== 使用代理执行 ======");
         Subject proxy1 = new Proxy(realSubject);
         proxy1.request();
+
+
     }
 }

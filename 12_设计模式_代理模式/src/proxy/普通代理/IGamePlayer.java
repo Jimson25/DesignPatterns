@@ -1,4 +1,10 @@
 package proxy.普通代理;
 
-public class IGamePlayer {
+public interface IGamePlayer {
+
+    void killBoss();
+
+    void login(String username,String passwd);
+
+    void upgrade();
 }
