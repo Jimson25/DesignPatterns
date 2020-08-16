@@ -1,14 +1,10 @@
-package proxy.普通代理;
+package proxy.动态代理;
 
 public class GamePlayer implements IGamePlayer {
     private String name;
 
-    public GamePlayer(IGamePlayer iGamePlayer, String name) {
-        if (iGamePlayer == null) {
-            throw new IllegalArgumentException("对象创建失败");
-        } else {
-            this.name = name;
-        }
+    public GamePlayer( String name) {
+        this.name = name;
     }
 
 
