@@ -14,8 +14,21 @@ public class GamePlayIH implements InvocationHandler {
         this.obj = obj;
     }
 
+    /**
+     * 动态代理实现AOP
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return method.invoke(obj, args);
+        Object result = method.invoke(obj, args);
+        if (method.getName().equalsIgnoreCase("login")) {
+            System.out.println("有人用" + args[0] + "登陆");
+        }
+        return result;
     }
+
+    //普通动态代理
+    /*@Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        return method.invoke(obj, args);
+    }*/
 }
