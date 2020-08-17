@@ -9,10 +9,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 成功发送 6000000 封邮件,共耗时: 30411ms
+ * 单线程:
+ *  成功发送 60000 封邮件,共耗时: 617603ms
+ * 多线程:
+ *  成功发送 60000 封邮件,共耗时: 6321ms
  */
 public class Client {
-    private static final int MAX_COUNT = 6000000;
+    private static final int MAX_COUNT = 60000;
 
     public static void main(String[] args) {
 
@@ -22,7 +25,7 @@ public class Client {
         final CountDownLatch latch = new CountDownLatch(MAX_COUNT);
 
         //创建一个线程池
-        ExecutorService pool = Executors.newFixedThreadPool(10);
+        ExecutorService pool = Executors.newFixedThreadPool(100);
 
         System.out.println("start time: " + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()));
         long start = System.currentTimeMillis();
@@ -53,6 +56,12 @@ public class Client {
     private static void sendMail(Mail mail) {
         //创建克隆对象
         Mail clone = mail.clone();
+
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         clone.setAppellation(randomStr(5) + "先生(女士)");
         clone.setReceiver(randomStr(5) + "@" + randomStr(8) + ".com");
