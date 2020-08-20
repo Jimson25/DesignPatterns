@@ -1,6 +1,6 @@
 package prototype.sendemail01;
 
-public class Mail {
+public class Mail implements Cloneable {
     //收件人
     private String receiver;
     //邮件名称
@@ -11,10 +11,22 @@ public class Mail {
     private String content;
     //邮件的尾部，一般都是加上"XXX版权所有"等信息
     private String tail;
+
     //构造函数
-    public Mail(AdvTemplate advTemplate){
+    public Mail(AdvTemplate advTemplate) {
         this.content = advTemplate.getAdvContext();
         this.subject = advTemplate.getAdvSubject();
+    }
+
+    @Override
+    public Mail clone() {
+        Mail mail = null;
+        try {
+            mail = (Mail) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return mail;
     }
 
     public String getReceiver() {

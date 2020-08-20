@@ -10,16 +10,16 @@ public class GamePlayer implements IGamePlayer {
 
     @Override
     public void killBoss() {
-        System.out.println("proxy.普通代理.GamePlayer " + this.name + " killBoss");
+        System.out.println("proxy.动态代理.GamePlayer " + this.name + " killBoss");
     }
 
     @Override
     public void login(String username, String passwd) {
-        System.out.println("proxy.普通代理.GamePlayer " + "用户名: " + username + ", 昵称: " + this.name + "登陆成功");
+        System.out.println("proxy.动态代理.GamePlayer " + "用户名: " + username + ", 昵称: " + this.name + "登陆成功");
     }
 
     @Override
     public void upgrade() {
-        System.out.println("proxy.普通代理.GamePlayer " + this.name + " upgrade");
+        System.out.println("proxy.动态代理.GamePlayer " + this.name + " upgrade");
     }
 }
