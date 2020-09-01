@@ -1,9 +1,5 @@
 package demo.plantB;
 
-import demo.plantA.context.Context;
-import demo.plantA.strategy.Add;
-import demo.plantA.strategy.Sub;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
