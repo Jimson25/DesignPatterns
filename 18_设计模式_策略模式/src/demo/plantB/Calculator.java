@@ -9,7 +9,7 @@ public enum Calculator {
 
     SUB("-") {
         public int exec(int a, int b) {
-            return a - b;
+            return Math.subtractExact(a, b);
         }
     };
 
