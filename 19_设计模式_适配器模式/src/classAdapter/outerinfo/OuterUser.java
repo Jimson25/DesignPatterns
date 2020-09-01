@@ -1,4 +1,4 @@
-package adapter.outerinfo;
+package classAdapter.outerinfo;
 
 import java.util.HashMap;
 import java.util.Map;

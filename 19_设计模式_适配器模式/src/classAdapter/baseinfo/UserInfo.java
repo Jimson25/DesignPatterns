@@ -1,4 +1,4 @@
-package adapter.baseinfo;
+package classAdapter.baseinfo;
 
 public class UserInfo implements IUserInfo {
     @Override

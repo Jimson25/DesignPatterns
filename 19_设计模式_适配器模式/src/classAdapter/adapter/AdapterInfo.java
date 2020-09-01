@@ -1,7 +1,7 @@
-package adapter.adapter;
+package classAdapter.adapter;
 
-import adapter.baseinfo.IUserInfo;
-import adapter.outerinfo.OuterUser;
+import classAdapter.baseinfo.IUserInfo;
+import classAdapter.outerinfo.OuterUser;
 
 public class AdapterInfo extends OuterUser implements IUserInfo {
     @Override

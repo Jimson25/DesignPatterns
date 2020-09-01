@@ -1,4 +1,4 @@
-package adapter.baseinfo;
+package classAdapter.baseinfo;
 
 public interface IUserInfo {
     //获得用户姓名

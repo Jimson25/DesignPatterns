@@ -1,8 +1,8 @@
-package adapter;
+package classAdapter;
 
-import adapter.adapter.AdapterInfo;
-import adapter.baseinfo.IUserInfo;
-import adapter.baseinfo.UserInfo;
+import classAdapter.adapter.AdapterInfo;
+import classAdapter.baseinfo.IUserInfo;
+import classAdapter.baseinfo.UserInfo;
 
 public class Client {
     public static void main(String[] args) {
