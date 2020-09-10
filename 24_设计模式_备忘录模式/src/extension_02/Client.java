@@ -16,6 +16,5 @@ public class Client {
         System.out.println("还原后的状态： ");
         System.out.println("\t" + originator.getState());
 
-
     }
 }
