@@ -11,6 +11,15 @@ public abstract class Employee {
     //允许一个访问者访问
     public abstract void accept(IVisitor visitor);
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "salary=" + salary +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                '}';
+    }
+
     public int getSalary() {
         return salary;
     }
