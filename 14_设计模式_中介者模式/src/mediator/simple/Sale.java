@@ -15,8 +15,8 @@ public class Sale extends AbstractColleague {
      *
      * @param number 卖出的电脑数量
      */
-    public void sellIBMComoputer(int number) {
-        super.mediator.execute("salc.sell", number);
+    public void sellIBMComputer(int number) {
+        super.mediator.execute(Common.SALE_SELL, number);
     }
 
     /**
@@ -35,7 +35,7 @@ public class Sale extends AbstractColleague {
      * 折价处理
      */
     public void offSale() {
-        super.mediator.execute("sale.offsell");
+        super.mediator.execute(Common.SALE_OFFSELL);
     }
 
 }

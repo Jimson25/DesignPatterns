@@ -10,16 +10,18 @@ public class Purchase extends AbstractColleague {
 
     /**
      * 购买IBM电脑
+     *
      * @param number 购买的电脑数
      */
     public void buyIBMComputer(int number) {
+        super.mediator.execute(Common.PURCHASE_BUY, number);
         System.out.println("购买 " + number + "台IBM电脑");
     }
 
     /**
      * 停止购买IBM电脑
      */
-    public void refuseBuyIBM(){
+    public void refuseBuyIBM() {
         System.out.println("不再购买IBM电脑");
     }
 }

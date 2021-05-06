@@ -9,7 +9,18 @@ public class Mediator extends AbstractMediator {
     @Override
     public void execute(String str, Object... objects) {
         switch (str) {
-            case "purchase.buy":
+            case Common.PURCHASE_BUY:  //采购电脑
+                this.buyComputer((Integer) objects[0]);
+                break;
+            case Common.SALE_SELL:  //销售电脑
+                this.sellComputer((Integer) objects[0]);
+                break;
+            case Common.SALE_OFFSELL:  //折价销售
+                this.offSell();
+                break;
+            case Common.STOCK_CLEAR:  //清仓处理
+                this.clearStock();
+                break;
         }
     }
 
@@ -35,7 +46,7 @@ public class Mediator extends AbstractMediator {
      *
      * @param number 卖掉的电脑数
      */
-    public void sellComputer(int number) {
+    private void sellComputer(int number) {
         if (super.stock.getComputerNumber() < number) {
             super.purchase.buyIBMComputer(number);
         }

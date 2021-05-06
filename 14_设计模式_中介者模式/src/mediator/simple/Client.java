@@ -10,7 +10,7 @@ public class Client {
 
         System.out.println("\n====== 销售电脑 ======\n");
         Sale sale = new Sale(mediator);
-        sale.sellIBMComoputer(10);
+        sale.sellIBMComputer(10);
 
         System.out.println("\n====== 管理库存 ======\n");
         Stock stock = new Stock(mediator);

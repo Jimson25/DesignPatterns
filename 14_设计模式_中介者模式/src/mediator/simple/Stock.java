@@ -16,7 +16,8 @@ public class Stock extends AbstractColleague {
      * @param number 新增加的库存
      */
     public void increase(int number) {
-        System.out.println("电脑库存为:" + (computerNumber += number) + "台");
+        computerNumber += number;
+        System.out.println("电脑库存为:" + computerNumber + "台");
     }
 
     /**
@@ -43,6 +44,6 @@ public class Stock extends AbstractColleague {
      */
     public void clearStock() {
         System.out.println("仓库空间不足,当前库存总数为: " + getComputerNumber());
-        super.mediator.execute("stock.clear");
+        super.mediator.execute(Common.STOCK_CLEAR);
     }
 }
