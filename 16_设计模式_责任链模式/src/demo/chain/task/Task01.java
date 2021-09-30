@@ -1,25 +1,34 @@
 package demo.chain.task;
 
 import demo.chain.ChainController;
-import demo.chain.Rule;
+import demo.util.CommonUtils;
 
-public class Task01 extends ChainController implements Rule {
+public class Task01 extends ChainController {
     static {
-        System.out.println(Task01.class.getSuperclass().getName());
+        CommonUtils.register(Task01.class);
+    }
+
+    private Task01() {
+    }
+
+
+    @Override
+    protected void init() {
     }
 
     @Override
-    public void init() { }
+    protected void before() {
+    }
 
     @Override
-    public void before() { }
+    protected void process() {
+    }
 
     @Override
-    public void process() { }
+    protected void end() {
+    }
 
     @Override
-    public void end() { }
-
-    @Override
-    public void destroy() { }
+    protected void destroy() {
+    }
 }

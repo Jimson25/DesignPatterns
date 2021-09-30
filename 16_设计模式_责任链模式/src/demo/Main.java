@@ -2,6 +2,8 @@ package demo;
 
 import demo.chain.ChainController;
 
+import java.io.FileNotFoundException;
+
 /**
  * 责任链模式demo
  * 设计：
@@ -13,6 +15,10 @@ import demo.chain.ChainController;
  */
 public class Main {
     public static void main(String[] args) {
-        new ChainController().start();
+        try {
+            ChainController.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
