@@ -2,12 +2,11 @@ package demo.chain;
 
 import demo.util.CommonUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.lang.reflect.Constructor;
+import java.util.List;
+import java.util.Set;
 
 public abstract class ChainController {
+
 
     protected abstract void init();
 
@@ -19,37 +18,20 @@ public abstract class ChainController {
 
     protected abstract void destroy();
 
-    public static void start() throws Exception {
-
-        String path = ChainController.class.getResource("").toString() + "task/";
-        String parentPath = ChainController.class.getName();
-        parentPath = parentPath.substring(0,parentPath.lastIndexOf("."));
-        File[] files = new File(path).listFiles();
-        for (File f : files) {
-            if (f.isDirectory()) {
-                continue;
+    public static void start() {
+        List<String> taskSet = CommonUtils.getTaskSet(ChainController.class);
+        for (String s : taskSet) {
+            try {
+                String className = "demo.chain.task." + s;
+                ChainController controller = (ChainController) Class.forName(className).getDeclaredConstructor().newInstance();
+                controller.init();
+                controller.before();
+                controller.process();
+                controller.end();
+                controller.destroy();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            Constructor<?> constructor = Class.forName(parentPath + f.getName()).getDeclaredConstructor();
-            constructor.setAccessible(true);
-            ChainController controller = (ChainController) constructor.newInstance();
-            controller.init();
-            controller.before();
-            controller.process();
-            controller.end();
-            controller.destroy();
         }
-
-//        String path = (String) CommonUtils.LOCAL.get();
-//        BufferedReader reader = new BufferedReader(new FileReader(path + ChainController.class.getName()));
-//        String line;
-//        while ((line = reader.readLine()) != null) {
-//            ChainController controller = (ChainController) Class.forName(line).getDeclaredConstructor().newInstance();
-//            controller.init();
-//            controller.before();
-//            controller.process();
-//            controller.end();
-//            controller.destroy();
-//        }
     }
-
 }
